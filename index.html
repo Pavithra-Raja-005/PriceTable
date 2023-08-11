@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 Days Css Challenge - Price Table</title>
+    <style>
+.frame {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 400px;
+	margin-top: -200px;
+	margin-left: -200px;
+	border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	background: #e9edef;
+	color: #5e5e5e;
+	font-family: "Open Sans", Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.subscribe {
+	margin: 15px 10px;
+}
+
+.plan {
+	position: absolute;
+	width: 110px;
+	height: 160px;
+	top: 30px;
+	left: 25px;
+	background: #fff;
+	box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+	overflow: hidden;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+
+	&.basic {
+		&:hover {
+			~ .benifits .user .fill,
+			~ .benifits .size .fill,
+			~ .benifits .project .fill {
+				transform: scaleX(0.05) translate3d(0, 0, 0);
+			}
+		}
+	}
+
+	&.pro {
+		left: 145px;
+
+		&:hover {
+			~ .benifits .user .fill {
+				transform: scaleX(0.3) translate3d(0, 0, 0);
+			}
+
+			~ .benifits .size .fill {
+				transform: scaleX(0.7) translate3d(0, 0, 0);
+			}
+
+			~ .benifits .project .fill {
+				transform: scaleX(0.5) translate3d(0, 0, 0);
+			}
+		}
+	}
+
+	&.premium {
+		left: 265px;
+
+		&:hover {
+			~ .benifits .user .fill,
+			~ .benifits .size .fill,
+			~ .benifits .project .fill {
+				transform: scaleX(1) translate3d(0, 0, 0);
+			}
+		}
+	}
+
+	&:hover {
+		transform: scale(1.1) translate3d(0, 0, 0);
+		box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.1);
+
+		.cardHead {
+			background: #27a6d2;
+		}
+
+		.cardBody > span:nth-child(1) {
+			color: #27a6d2;
+		}
+	}
+}
+
+.cardHead {
+	height: 30px;
+	font-weight: 600;
+	text-align: center;
+	line-height: 30px;
+	background: #7dd0ed;
+	color: #fff;
+}
+
+.cardBody {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: #fff;
+}
+
+.cardBody > span:nth-child(1) {
+	font-size: 30px;
+	margin-top: 10px;
+	font-weight: 900;
+}
+
+.cardBody > span:nth-child(2) {
+	font-size: 12px;
+	margin-top: -5px;
+}
+
+.content {
+	width: 100%;
+	margin: 10px 0px;
+}
+
+hr {
+	height: 2px;
+	width: 50%;
+	background: #5e5e5e;
+	border: 0px;
+}
+
+.content > hr:nth-child(1) {
+	width: 60%;
+}
+
+.content > hr:nth-child(3) {
+	width: 60%;
+}
+
+.benifits {
+	display: flex;
+	flex-direction: column;
+	height: 130px;
+	justify-content: space-around;
+	background: #fff;
+	padding: 15px 10px;
+	margin-top: 220px;
+	border-radius: 3px;
+	box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.user,
+.size,
+.project {
+	width: 100%;
+	font-size: 12px;
+}
+
+.label {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 3px;
+}
+
+.progressBar {
+	height: 10px;
+	background: #e9edef;
+	border-radius: 5px;
+	overflow: hidden;
+	z-index: 5;
+}
+
+.fill {
+	position: relative;
+	z-index: 1;
+	height: 10px;
+	width: 100%;
+	background: #7dd0ed;
+	transform: scaleX(0);
+	transform-origin: 0 50%;
+	transition: all 0.3s ease-in-out;
+	border-radius: 3px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="subscribe">
+            <div class="plan basic">
+                <div class="cardHead">Basic</div>
+                <div class="cardBody">
+                    <span>$5</span>
+                    <span>per month</span>
+                    <div class="content">
+                        <hr>
+                        <hr>
+                        <hr>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="plan pro">
+                <div class="cardHead">Pro</div>
+                <div class="cardBody">
+                    <span>$10</span>
+                    <span>per month</span>
+                    <div class="content">
+                        <hr>
+                        <hr>
+                        <hr>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="plan premium">
+                <div class="cardHead">Premium</div>
+                <div class="cardBody">
+                    <span>$20</span>
+                    <span>per month</span>
+                    <div class="content">
+                        <hr>
+                        <hr>
+                        <hr>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="benifits">
+                <div class="user">
+                    <div class="label">
+                        <div class="min">5 Users</div>
+                        <div class="max">100 Users</div>
+                    </div>
+                    <div class="progressBar">
+                        <div class="fill"></div>
+                    </div>
+                </div>
+                <div class="size">
+                    <div class="label">
+                        <div class="min">20 GB</div>
+                        <div class="max">100 GB</div>
+                    </div>
+                    <div class="progressBar">
+                        <div class="fill"></div>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="label">
+                        <div class="min">1 Project</div>
+                        <div class="max">50 Projects</div>
+                    </div>
+                    <div class="progressBar">
+                        <div class="fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
